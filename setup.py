@@ -14,8 +14,7 @@ requirements = [
     'Click>=6.0',
     'dlib>=19.7',
     'numpy',
-    'Pillow',
-    'scipy>=0.17.0'
+    'Pillow'
 ]
 
 test_requirements = [
@@ -25,7 +24,7 @@ test_requirements = [
 
 setup(
     name='face_recognition',
-    version='1.1.0',
+    version='1.4.0',
     description="Recognize faces from Python or from the command line",
     long_description=readme + '\n\n' + history,
     author="Adam Geitgey",
@@ -40,7 +39,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'face_recognition=face_recognition.cli:main'
+            'face_recognition=face_recognition.face_recognition_cli:main',
+            'face_detection=face_recognition.face_detection_cli:main'
         ]
     },
     install_requires=requirements,
@@ -52,14 +52,11 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
-        "Programming Language :: Python :: 2",
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ],
     test_suite='tests',
     tests_require=test_requirements

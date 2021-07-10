@@ -1,6 +1,6 @@
 # This is a sample Dockerfile you can modify to deploy your own app based on face_recognition
 
-FROM python:3.4-slim
+FROM python:3.6-slim-stretch
 
 RUN apt-get -y update
 RUN apt-get install -y --fix-missing \
@@ -12,10 +12,9 @@ RUN apt-get install -y --fix-missing \
     curl \
     graphicsmagick \
     libgraphicsmagick1-dev \
-    libatlas-dev \
+    libatlas-base-dev \
     libavcodec-dev \
     libavformat-dev \
-    libboost-all-dev \
     libgtk2.0-dev \
     libjpeg-dev \
     liblapack-dev \
@@ -29,7 +28,7 @@ RUN apt-get install -y --fix-missing \
 
 RUN cd ~ && \
     mkdir -p dlib && \
-    git clone -b 'v19.7' --single-branch https://github.com/davisking/dlib.git dlib/ && \
+    git clone -b 'v19.9' --single-branch https://github.com/davisking/dlib.git dlib/ && \
     cd  dlib/ && \
     python3 setup.py install --yes USE_AVX_INSTRUCTIONS
 
